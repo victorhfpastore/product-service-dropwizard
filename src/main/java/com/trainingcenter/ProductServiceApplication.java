@@ -25,8 +25,17 @@ public class ProductServiceApplication extends Application<ProductServiceConfigu
     public void initialize(final Bootstrap<ProductServiceConfiguration> bootstrap) {
         bootstrap.addBundle(new MigrationsBundle<ProductServiceConfiguration>() {
             @Override
+            public void run(ProductServiceConfiguration productServiceConfiguration, Environment environment) throws Exception {
+            }
+
+            @Override
             public DataSourceFactory getDataSourceFactory(ProductServiceConfiguration configuration) {
                 return configuration.getDataSourceFactory();
+            }
+
+            @Override
+            public String name() {
+                return "db";
             }
         });
     }
@@ -44,5 +53,7 @@ public class ProductServiceApplication extends Application<ProductServiceConfigu
         environment.jersey().register(productResource);
 
     }
+
+
 
 }

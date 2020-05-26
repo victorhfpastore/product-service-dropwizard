@@ -26,8 +26,17 @@ public class ProductResource {
 
     @POST
     public Response createProduct(Product product) {
-        productDao.insert(product);
-        return Response.status(Response.Status.CREATED).build();
+        if (product == null) {
+            throw new BadRequestException("product data missing");
+        }
+        long id = productDao.insert(product);
+        product = productDao.findById(id);
+
+        if (product == null) {
+            throw new WebApplicationException("Problem creating Product");
+        }
+
+        return Response.ok(product).build();
     }
 
     @GET
