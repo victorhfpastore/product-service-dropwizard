@@ -11,3 +11,16 @@ Health Check
 ---
 
 To see your applications health enter url `http://localhost:8081/healthcheck`
+
+IntelliJ
+---
+
+`Product-DB-H2-Migrate` - execute H2 (dev) Data Base migration.
+
+`Product-DB-H2` - start application using H2 Data Base.
+
+`Product-DB-MySQL-Migrate` - start MySQL (prod - example) migration.
+
+`Product-DB-MySQL` - start application using MySQL Data Base.
+
+![intelliJ](intellij-scripts.png)
