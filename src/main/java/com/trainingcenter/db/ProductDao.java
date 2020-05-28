@@ -13,7 +13,7 @@ import java.util.List;
 @RegisterRowMapper(ProductMapper.class)
 public interface ProductDao {
 
-    @SqlUpdate("insert into product (name, description) values (:name, :description)")
+    @SqlUpdate("insert into product (name, description, preco) values (:name, :description, :preco)")
     @GetGeneratedKeys
     long insert(@BindBean Product product);
 
